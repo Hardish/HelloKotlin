@@ -1,0 +1,6 @@
+ //to check null and replace it with some valid value
+        //way 1:
+         val nickNameToPrint = if(nickName != null) nickName else "No nickname"
+        //way 2:
+        // elvish operator : return nick name in case not null else return "no nick name"
+        val nickNameToPrint = nickName ?: "no nick name"

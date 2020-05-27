@@ -1,0 +1,20 @@
+//way 1:
+    class Person_IntializeProperties_way1(val firstName:String,val lastName:String){
+
+    }
+
+    //way 2: initialize property
+
+    class Person_IntializeProperties_way2(_firstName:String,_lastName:String){
+        val firstName:String = _firstName
+        val lastName:String =_lastName
+    }
+
+    //way 3: initializing property
+    class Person_IntializeProperties_way3(_firstName:String,_lastName:String){
+        //can have multiple init block and run in sequence
+        init {
+            var firstName = _firstName
+            var lastName = _lastName
+        }
+    }

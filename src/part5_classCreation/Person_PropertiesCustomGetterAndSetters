@@ -1,0 +1,15 @@
+class Person(val firstName:String = "Peter",val lastName:String ="Parker"){
+
+    var nickName: String? = null
+    //defining your own setter for nickName
+    set(value) {
+        field = value // to update the new value to current variable
+        println("new value of the NickName is $value ")
+    }
+
+    //define your custom getter
+    get() {
+        println("the returned value is $field")
+        return field
+    }
+}

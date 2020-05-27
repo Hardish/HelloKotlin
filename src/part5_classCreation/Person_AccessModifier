@@ -1,0 +1,11 @@
+access modifier for class
+    1. public : by default
+    2. internal : public within the module
+    3. private: only available in the same class only
+
+
+access modifier for method/variable
+    1. public : by default
+    2. internal : public within the module
+    3. private: only available in the class only
+    4. protected: only available in the class or within any subclasses
