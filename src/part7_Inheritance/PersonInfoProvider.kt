@@ -1,8 +1,10 @@
-package part6_Interface
+package part7_Inheritance
 
 import part5_classCreation.Person
 
-interface TypeCastingAndTypeCheckingUsingPerson {
+
+interface PersonInfoProvider {
+
     val provideInfo: String
 
     fun printInfo(person: Person) {
@@ -12,15 +14,15 @@ interface TypeCastingAndTypeCheckingUsingPerson {
 }
 
 
-interface SessionInfoProviderTypeCasting {
+interface SessionInfoProvider {
     fun getSessionId() : String
 }
 
-class BasicInfoProviderTypeCasting : TypeCastingAndTypeCheckingUsingPerson,SessionInfoProviderTypeCasting {
+open class BasicInfoProvider : PersonInfoProvider, SessionInfoProvider {
 
 
     override val provideInfo: String
-        get() = "BasicInfoProviderProperties_Method"
+        get() = "Basic Info Provider"
 
 
     override fun printInfo(person: Person) {
@@ -36,7 +38,7 @@ class BasicInfoProviderTypeCasting : TypeCastingAndTypeCheckingUsingPerson,Sessi
 
 fun main() {
 
-    val provider = BasicInfoProviderTypeCasting()
+    val provider = FancyInfoProvider()
     provider.printInfo(Person())
     provider.getSessionId()
 
@@ -44,8 +46,8 @@ fun main() {
     checkTypes2(provider)
 }
 
-fun checkTypes2(infoProvider: TypeCastingAndTypeCheckingUsingPerson) {
-    if(infoProvider !is SessionInfoProviderTypeCasting) {
+fun checkTypes2(infoProvider: part7_Inheritance.PersonInfoProvider) {
+    if(infoProvider !is part7_Inheritance.SessionInfoProvider) {
         println("not session Info Provider")
     } else {
         println("it is a session Info provider")
@@ -57,10 +59,10 @@ fun checkTypes2(infoProvider: TypeCastingAndTypeCheckingUsingPerson) {
     }
 }
 
-fun checkTypes(infoProvider: TypeCastingAndTypeCheckingUsingPerson) {
-        if(infoProvider is SessionInfoProviderTypeCasting) {
-            println("Session Info Provider")
-        } else {
-            println("not a session Info provider")
-        }
+fun checkTypes(infoProvider: part7_Inheritance.PersonInfoProvider) {
+    if(infoProvider is part7_Inheritance.SessionInfoProvider) {
+        println("Session Info Provider")
+    } else {
+        println("not a session Info provider")
+    }
 }
